@@ -1026,6 +1026,159 @@
                 padding-bottom: 58px !important;
             }
         }
+    
+        /* mobileKoreanLineFix */
+        .no-break {
+            white-space: nowrap;
+        }
+
+        .hero h1,
+        .hero-copy,
+        .section-title h2,
+        .section-title p,
+        .problem-card h3,
+        .problem-card p,
+        .proof-card h3,
+        .proof-card p,
+        .case-card h3,
+        .case-card p,
+        .step h3,
+        .step p,
+        .final-cta h2,
+        .final-cta p,
+        .privacy-consent {
+            word-break: keep-all;
+            overflow-wrap: normal;
+            line-break: strict;
+        }
+
+        @media (max-width: 620px) {
+            .hero h1 {
+                max-width: 100%;
+                font-size: clamp(29px, 8.6vw, 36px) !important;
+                line-height: 1.14 !important;
+                letter-spacing: 0 !important;
+            }
+
+            .hero h1 .title-line {
+                display: block;
+                white-space: nowrap;
+            }
+
+            .hero-copy {
+                font-size: clamp(15px, 4.2vw, 17px) !important;
+                line-height: 1.68 !important;
+            }
+
+            .hero-copy span,
+            .mobile-line {
+                display: block;
+            }
+
+            .section-title h2,
+            .final-cta h2 {
+                font-size: clamp(26px, 7.2vw, 31px) !important;
+                line-height: 1.32 !important;
+            }
+
+            .problem-card h3,
+            .proof-card h3,
+            .case-card h3,
+            .step h3 {
+                font-size: clamp(19px, 5.4vw, 22px) !important;
+                line-height: 1.42 !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 27px !important;
+            }
+
+            .hero-copy {
+                font-size: 14px !important;
+            }
+        }
+    
+        /* questionPanelMobileLineFix */
+        .question-panel strong {
+            word-break: keep-all;
+            overflow-wrap: normal;
+            line-break: strict;
+        }
+
+        .question-panel .question-line {
+            display: block;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 620px) {
+            .question-panel {
+                padding: 22px 18px !important;
+            }
+
+            .question-panel .small {
+                font-size: 13px !important;
+                line-height: 1.45 !important;
+            }
+
+            .question-panel strong {
+                font-size: clamp(20px, 5.45vw, 24px) !important;
+                line-height: 1.34 !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .question-panel strong {
+                font-size: 19px !important;
+            }
+        }
+    
+        /* floatingCtaMobileFit */
+        @media (max-width: 620px) {
+            .floating-cta {
+                width: calc(100% - 22px) !important;
+                bottom: 10px !important;
+            }
+
+            .floating-cta-inner {
+                gap: 6px !important;
+                padding: 7px !important;
+            }
+
+            .floating-cta a {
+                min-height: 48px !important;
+                font-size: 14px !important;
+                white-space: nowrap !important;
+            }
+        }
+    
+        /* floatingCtaViewportFit */
+        @media (max-width: 620px) {
+            .floating-cta {
+                width: min(320px, calc(100vw - 22px)) !important;
+                box-sizing: border-box !important;
+            }
+
+            .floating-cta-inner,
+            .floating-cta a {
+                box-sizing: border-box !important;
+                min-width: 0 !important;
+            }
+        }
+    
+        /* mobileCtaNoOverlap */
+        @media (max-width: 620px) {
+            .floating-cta {
+                position: static !important;
+                left: auto !important;
+                bottom: auto !important;
+                transform: none !important;
+                display: block !important;
+                width: min(320px, calc(100vw - 22px)) !important;
+                margin: 22px auto 26px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1044,11 +1197,11 @@
             <div class="hero-inner">
                 <div>
                     <span class="badge">중복보장 · 부족보장 · 불필요 특약 체크</span>
-                    <h1>내 보험,<br><em>제대로</em> 가입됐을까요?</h1>
+                    <h1><span class="title-line">내 보험,</span><span class="title-line"><em>제대로</em> 가입됐을까요?</span></h1>
                     <p class="hero-copy">
                         <span>매달 보험료는 빠져나가는데,</span>
                         <span>막상 병원에 가면 <strong>내가 받을 수 있는 보상</strong>이</span>
-                        <span>무엇인지 헷갈리셨다면 지금 점검이 필요합니다.</span>
+                        <span>무엇인지 헷갈리셨다면</span><span><span class="no-break">지금 점검이 필요합니다.</span></span>
                     </p>
                     <div class="hero-actions">
                         <a href="https://open.kakao.com/o/s4lMEawg" target="_blank" rel="noopener" class="btn btn-kakao">카카오톡으로 무료 점검</a>
@@ -1065,7 +1218,7 @@
                     <div class="phone-card">
                         <div class="question-panel">
                             <span class="small">당신의 보험 가치는 얼마인가요?</span>
-                            <strong>보험료만 내고 끝내지 말고<br>지금 가입한 보험이 실제로 얼마나 역할하는지 확인해보세요</strong>
+                            <strong><span class="question-line">보험료만 내고 끝내지 말고</span><span class="question-line">지금 가입한 보험이 실제로</span><span class="question-line">얼마나 역할하는지</span><span class="question-line">확인해보세요</span></strong>
                         </div>
                         <ul class="check-panel">
                             <li>병원비 보상이 되는 담보인지 확인</li>
@@ -1228,7 +1381,7 @@
                             <input type="checkbox" checked>
                             <span>개인정보 수집 및 이용에 동의합니다.</span>
                         </label>
-                        <p>입력하신 정보는 보험 상담 이외의 목적으로 활용되지 않으며, 상담 종료 후 최대 3개월까지 보관 후 삭제됩니다.</p>
+                        <p>입력하신 정보는 보험 상담 이외의 목적으로 활용되지 않으며, <span class="no-break">상담 종료 후 최대 3개월까지</span> 보관 후 삭제됩니다.</p>
                     </div><p class="notice">상담비는 무료이며, 상담 결과에 따라 가입 권유 없이 점검만 받으셔도 됩니다.</p>
                 </div>
             </div>
