@@ -1298,6 +1298,241 @@
                 margin: 22px auto 26px !important;
             }
         }
+
+        /* polishedConsultForm */
+        .cta-card {
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 30px 24px;
+            background: #ffffff;
+            color: #111827;
+            border-radius: 4px;
+            box-shadow: 0 18px 50px rgba(17, 24, 39, 0.16);
+            text-align: left;
+        }
+
+        .lead-form {
+            max-width: none;
+            margin: 0;
+            gap: 14px;
+        }
+
+        .lead-form-title {
+            margin: 0 0 4px;
+            color: #10233f;
+            font-size: 30px;
+            line-height: 1.2;
+            font-weight: 900;
+            letter-spacing: 0;
+        }
+
+        .lead-form-desc {
+            margin: 0 0 8px;
+            color: #667085;
+            font-size: 15px;
+            line-height: 1.55;
+            font-weight: 700;
+        }
+
+        .lead-fields {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .lead-form label {
+            color: #1f2937;
+            font-size: 16px;
+            gap: 9px;
+        }
+
+        .lead-form input[type="text"],
+        .lead-form input[type="tel"] {
+            min-height: 50px;
+            border: 1px solid #cfd6e2;
+            border-radius: 6px;
+            background: #ffffff;
+            color: #1f2937;
+            font-size: 16px;
+            box-shadow: none;
+        }
+
+        .lead-submit {
+            min-height: 52px;
+            border-radius: 6px;
+            background: #10233f;
+            color: #ffffff;
+            font-size: 17px;
+        }
+
+        .privacy-consent {
+            max-width: none;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            color: #344054;
+        }
+
+        .privacy-consent label {
+            gap: 8px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .privacy-consent input {
+            flex-basis: 16px;
+            width: 16px;
+            height: 16px;
+        }
+
+        .privacy-consent p {
+            margin-top: 6px;
+            color: #667085;
+        }
+
+        .privacy-more {
+            border: 0;
+            padding: 0;
+            margin-left: 4px;
+            background: transparent;
+            color: #ff5a00;
+            font: inherit;
+            font-weight: 900;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .cta-card .contact-actions {
+            display: none;
+        }
+
+        .cta-card .notice {
+            color: #667085;
+            text-align: center;
+            line-height: 1.55;
+        }
+
+        .floating-cta {
+            position: fixed !important;
+            left: 50% !important;
+            bottom: max(14px, env(safe-area-inset-bottom)) !important;
+            z-index: 80 !important;
+            transform: translateX(-50%) !important;
+            display: block !important;
+            width: min(520px, calc(100vw - 28px)) !important;
+            margin: 0 !important;
+            box-sizing: border-box !important;
+        }
+
+        .floating-cta-inner {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 8px !important;
+            padding: 8px !important;
+            border-radius: 999px !important;
+            background: rgba(255, 255, 255, 0.96) !important;
+            border: 1px solid rgba(255, 90, 0, 0.14);
+            box-shadow: 0 18px 44px rgba(17, 24, 39, 0.24) !important;
+            backdrop-filter: blur(12px);
+        }
+
+        .floating-cta a {
+            min-height: 52px !important;
+            border-radius: 999px !important;
+            font-size: 15px !important;
+            font-weight: 900 !important;
+            white-space: nowrap !important;
+            text-decoration: none;
+        }
+
+        body {
+            padding-bottom: 94px;
+        }
+
+        .privacy-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 120;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 22px;
+            background: rgba(15, 23, 42, 0.58);
+        }
+
+        .privacy-modal.show {
+            display: flex;
+        }
+
+        .privacy-dialog {
+            width: min(560px, 100%);
+            max-height: min(720px, calc(100vh - 44px));
+            overflow: auto;
+            padding: 24px;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #1f2937;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+            word-break: keep-all;
+        }
+
+        .privacy-dialog h3 {
+            margin: 0 0 14px;
+            color: #10233f;
+            font-size: 22px;
+            line-height: 1.3;
+        }
+
+        .privacy-dialog p,
+        .privacy-dialog li {
+            color: #475467;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .privacy-dialog ul {
+            margin: 12px 0 18px;
+            padding-left: 18px;
+        }
+
+        .privacy-close {
+            width: 100%;
+            min-height: 48px;
+            margin-top: 8px;
+            border: 0;
+            border-radius: 6px;
+            background: #10233f;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        @media (max-width: 620px) {
+            .final-cta {
+                padding-bottom: 40px;
+            }
+
+            .cta-card {
+                padding: 24px 18px;
+            }
+
+            .floating-cta {
+                width: calc(100vw - 18px) !important;
+            }
+
+            .floating-cta-inner {
+                gap: 6px !important;
+                padding: 7px !important;
+            }
+
+            .floating-cta a {
+                min-height: 50px !important;
+                font-size: 13px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1489,31 +1724,28 @@
             <div class="section-inner">
                 <span class="badge">무료 보험 점검</span>
                 <h2>보험료만 내고 끝내지 마세요.<br>지금 내 보험이 실제로 얼마나 역할하는지 확인하세요.</h2>
-                <p>카카오톡 또는 전화로 편하게 문의하시면 현재 상황에 맞춰 점검 가능 여부부터 안내드립니다.</p>
-                <div class="cta-card">
-                    <form class="lead-form" data-form-type="원주 당근 보험 점검">
-                        <div class="lead-fields">
-                            <label>이름
-                                <input type="text" name="name" autocomplete="name" required placeholder="이름을 입력해 주세요">
+                <p>이름과 연락처만 남겨주시면 배진우 담당자가 직접 연락드리겠습니다.</p>
+                <div class="cta-card" style="max-width:520px;margin-left:auto;margin-right:auto;padding:30px 24px;background:#ffffff;color:#111827;border-radius:4px;box-shadow:0 18px 50px rgba(17,24,39,.16);text-align:left;">
+                    <form class="lead-form" data-form-type="원주 당근 보험 점검" style="display:grid;gap:16px;margin:0;max-width:none;">
+                        <h3 class="lead-form-title" style="margin:0;color:#10233f;font-size:32px;line-height:1.2;font-weight:900;">상담 신청</h3>
+                        <p class="lead-form-desc" style="margin:0 0 4px;color:#667085;font-size:15px;line-height:1.55;font-weight:700;">간단히 남겨주시면 현재 상황에 맞춰 점검 가능 여부부터 안내드립니다.</p>
+                        <div class="lead-fields" style="display:grid;grid-template-columns:1fr;gap:16px;">
+                            <label style="display:grid;gap:9px;color:#1f2937;font-size:16px;font-weight:900;">이름
+                                <input type="text" name="name" autocomplete="name" required placeholder="이름을 입력해 주세요" style="width:100%;min-height:52px;padding:0 16px;border:1px solid #cfd6e2;border-radius:6px;background:#fff;color:#1f2937;font-size:16px;font-weight:800;box-sizing:border-box;">
                             </label>
-                            <label>연락처
-                                <input type="tel" name="phone" inputmode="tel" autocomplete="tel" required placeholder="010-0000-0000">
+                            <label style="display:grid;gap:9px;color:#1f2937;font-size:16px;font-weight:900;">연락처
+                                <input type="tel" name="phone" inputmode="tel" autocomplete="tel" required placeholder="010-0000-0000" style="width:100%;min-height:52px;padding:0 16px;border:1px solid #cfd6e2;border-radius:6px;background:#fff;color:#1f2937;font-size:16px;font-weight:800;box-sizing:border-box;">
                             </label>
                         </div>
-                        <div class="privacy-consent">
-                            <label>
-                                <input type="checkbox" name="privacy" checked required>
-                                <span>개인정보 수집 및 이용에 동의합니다.</span>
+                        <div class="privacy-consent" style="margin:0;padding:0;border:0;background:transparent;color:#344054;">
+                            <label style="display:flex;align-items:flex-start;gap:8px;font-size:13px;font-weight:900;line-height:1.5;">
+                                <input type="checkbox" name="privacy" checked required style="flex:0 0 16px;width:16px;height:16px;margin-top:2px;">
+                                <span>개인정보 수집 및 이용에 동의합니다. <button type="button" class="privacy-more" data-privacy-open style="color:#2563eb;text-decoration:underline;text-underline-offset:2px;">자세히</button></span>
                             </label>
-                            <p>입력하신 정보는 보험 상담 이외의 목적으로 활용되지 않으며, <span class="no-break">상담 종료 후 최대 3개월까지</span> 보관 후 삭제됩니다.</p>
                         </div>
-                        <button class="lead-submit" type="submit">무료 점검 신청하기</button>
-                        <p class="form-message" role="status"></p>
+                        <button class="lead-submit" type="submit" style="width:100%;min-height:54px;border:0;border-radius:6px;background:#10233f;color:#fff;font-size:17px;font-weight:900;cursor:pointer;">무료 점검 신청하기</button>
+                        <p class="form-message" role="status" style="min-height:20px;margin:0;color:#ff5a00;font-size:13px;font-weight:800;text-align:center;"></p>
                     </form>
-                    <div class="contact-actions">
-                        <a href="tel:010-3430-2565" class="btn btn-phone">전화 상담</a>
-                        <a href="https://open.kakao.com/o/s4lMEawg" target="_blank" rel="noopener" class="btn btn-kakao">카카오톡 채팅 상담</a>
-                    </div>
                     <p class="notice">상담비는 무료이며, 상담 결과에 따라 가입 권유 없이 점검만 받으셔도 됩니다.</p>
                 </div>
             </div>
@@ -1547,10 +1779,29 @@
         </div>
     </footer>
 
-    <div class="floating-cta">
-        <div class="floating-cta-inner">
-            <a class="float-phone" href="tel:010-3430-2565">전화 상담</a>
-            <a class="float-kakao" href="https://open.kakao.com/o/s4lMEawg" target="_blank" rel="noopener">카톡 상담</a>
+    <div class="floating-cta" style="position:fixed;right:14px;bottom:14px;left:auto;z-index:999;display:flex;align-items:center;gap:8px;width:auto;margin:0;transform:none;box-sizing:border-box;">
+        <button type="button" data-contact-menu-toggle style="min-height:48px;padding:0 18px;border:0;border-radius:999px;background:#10233f;color:#fff;font-size:14px;font-weight:900;box-shadow:0 14px 34px rgba(17,24,39,.24);white-space:nowrap;">전화/문자 상담</button>
+        <button type="button" data-contact-menu-toggle aria-label="상담 메뉴 열기" style="width:48px;height:48px;border:0;border-radius:50%;background:#ff5a00;color:#fff;font-size:24px;font-weight:900;line-height:1;box-shadow:0 14px 34px rgba(255,90,0,.3);display:flex;align-items:center;justify-content:center;">☰</button>
+        <div id="contactActionMenu" style="position:absolute;right:0;bottom:58px;display:none;width:188px;padding:8px;border-radius:14px;background:#fff;box-shadow:0 18px 44px rgba(17,24,39,.24);border:1px solid rgba(17,24,39,.08);">
+            <a href="tel:010-3430-2565" style="display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:10px;background:#fff1e7;color:#e24900;font-size:14px;font-weight:900;text-decoration:none;">전화 상담</a>
+            <a href="sms:010-3430-2565" style="display:flex;align-items:center;justify-content:center;min-height:44px;margin-top:6px;border-radius:10px;background:#fff7ed;color:#e24900;font-size:14px;font-weight:900;text-decoration:none;">문자 상담</a>
+            <a href="https://open.kakao.com/o/s4lMEawg" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;min-height:44px;margin-top:6px;border-radius:10px;background:#fee500;color:#191919;font-size:14px;font-weight:900;text-decoration:none;">카톡 상담</a>
+        </div>
+    </div>
+    <div class="privacy-modal" id="privacyModal" aria-hidden="true" style="position:fixed;inset:0;z-index:1200;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(15,23,42,.58);" hidden>
+        <div class="privacy-dialog" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle" style="width:min(560px,100%);max-height:min(720px,calc(100vh - 44px));overflow:auto;padding:24px;border-radius:12px;background:#fff;color:#1f2937;box-shadow:0 24px 70px rgba(0,0,0,.26);word-break:keep-all;">
+            <h3 id="privacyModalTitle">개인정보 수집 및 이용 안내</h3>
+            <p>본 상담 신청은 「개인정보 보호법」 등 관련 법령에 따라 보험 점검 상담 진행에 필요한 최소한의 개인정보만 수집합니다.</p>
+            <ul>
+                <li>수집 항목: 이름, 연락처</li>
+                <li>수집 목적: 보험 점검 상담 신청 확인, 상담 일정 안내, 문의 응대, 상담 이력 확인</li>
+                <li>보유 및 이용 기간: 상담 종료 후 최대 3개월까지 보관 후 지체 없이 삭제</li>
+                <li>이용 제한: 입력하신 정보는 보험 상담 이외의 목적, 제3자 제공, 마케팅 목적으로 활용하지 않습니다.</li>
+                <li>처리 근거: 정보주체의 동의에 따른 상담 신청 처리 및 「개인정보 보호법」상 개인정보 처리 원칙 준수</li>
+                <li>동의 거부 권리: 개인정보 수집 및 이용에 동의하지 않을 권리가 있으며, 동의하지 않을 경우 상담 신청 접수가 제한될 수 있습니다.</li>
+            </ul>
+            <p>개인정보 처리와 관련한 열람, 정정, 삭제 요청은 상담 담당자 또는 메타리치 시그널 그룹을 통해 요청하실 수 있습니다.</p>
+            <button type="button" class="privacy-close" data-privacy-close>닫기</button>
         </div>
     </div>
     <script>
@@ -1649,6 +1900,67 @@
                     submitButton.textContent = submitButton.dataset.originalText || "무료 점검 신청하기";
                 }
             });
+        });
+
+        const privacyModal = document.getElementById("privacyModal");
+
+        function openPrivacyModal() {
+            if (!privacyModal) return;
+            privacyModal.hidden = false;
+            privacyModal.classList.add("show");
+            privacyModal.style.display = "flex";
+            privacyModal.setAttribute("aria-hidden", "false");
+        }
+
+        function closePrivacyModal() {
+            if (!privacyModal) return;
+            privacyModal.classList.remove("show");
+            privacyModal.style.display = "none";
+            privacyModal.hidden = true;
+            privacyModal.setAttribute("aria-hidden", "true");
+        }
+
+        document.querySelectorAll("[data-privacy-open]").forEach((button) => {
+            button.addEventListener("click", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                openPrivacyModal();
+            });
+        });
+
+        document.querySelectorAll("[data-privacy-close]").forEach((button) => {
+            button.addEventListener("click", closePrivacyModal);
+        });
+
+        if (privacyModal) {
+            privacyModal.addEventListener("click", (event) => {
+                if (event.target === privacyModal) closePrivacyModal();
+            });
+        }
+
+        const contactActionMenu = document.getElementById("contactActionMenu");
+
+        function toggleContactMenu(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            if (!contactActionMenu) return;
+            contactActionMenu.style.display = contactActionMenu.style.display === "block" ? "none" : "block";
+        }
+
+        document.querySelectorAll("[data-contact-menu-toggle]").forEach((button) => {
+            button.addEventListener("click", toggleContactMenu);
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!contactActionMenu) return;
+            if (!event.target.closest(".floating-cta")) contactActionMenu.style.display = "none";
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closePrivacyModal();
+                if (contactActionMenu) contactActionMenu.style.display = "none";
+            }
         });
     </script>
 </body>
