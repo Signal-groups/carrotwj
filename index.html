@@ -666,6 +666,7 @@
             max-width: 1120px;
             margin: 0 auto;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             gap: 24px;
         }
@@ -678,7 +679,10 @@
         }
 
         .legal-notice {
-            margin-top: 14px;
+            flex: 0 0 100%;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 4px;
             padding: 14px 16px;
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 12px;
@@ -924,9 +928,91 @@
             line-height: 1.55;
         }
 
+        .lead-form {
+            max-width: 720px;
+            margin: 0 auto 16px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .lead-fields {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .lead-form label {
+            display: grid;
+            gap: 7px;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 13px;
+            font-weight: 900;
+            text-align: left;
+        }
+
+        .lead-form input[type="text"],
+        .lead-form input[type="tel"] {
+            width: 100%;
+            min-height: 52px;
+            padding: 0 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #15181e;
+            font-size: 16px;
+            font-weight: 800;
+            outline: none;
+        }
+
+        .lead-form input[type="text"]:focus,
+        .lead-form input[type="tel"]:focus {
+            border-color: #fee500;
+            box-shadow: 0 0 0 3px rgba(254, 229, 0, 0.22);
+        }
+
+        .lead-submit {
+            width: 100%;
+            min-height: 56px;
+            border: 0;
+            border-radius: 999px;
+            background: #ff5a00;
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .lead-submit:disabled {
+            cursor: progress;
+            opacity: 0.72;
+        }
+
+        .form-message {
+            min-height: 20px;
+            margin: 0;
+            color: #fee500;
+            font-size: 13px;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .form-message.error {
+            color: #ffb199;
+        }
+
         @media (max-width: 620px) {
             .privacy-consent {
                 padding: 13px 14px;
+            }
+
+            .lead-fields {
+                grid-template-columns: 1fr;
+            }
+
+            .lead-form input[type="text"],
+            .lead-form input[type="tel"],
+            .lead-submit {
+                min-height: 50px;
             }
         }
     
@@ -1405,17 +1491,30 @@
                 <h2>보험료만 내고 끝내지 마세요.<br>지금 내 보험이 실제로 얼마나 역할하는지 확인하세요.</h2>
                 <p>카카오톡 또는 전화로 편하게 문의하시면 현재 상황에 맞춰 점검 가능 여부부터 안내드립니다.</p>
                 <div class="cta-card">
+                    <form class="lead-form" data-form-type="원주 당근 보험 점검">
+                        <div class="lead-fields">
+                            <label>이름
+                                <input type="text" name="name" autocomplete="name" required placeholder="이름을 입력해 주세요">
+                            </label>
+                            <label>연락처
+                                <input type="tel" name="phone" inputmode="tel" autocomplete="tel" required placeholder="010-0000-0000">
+                            </label>
+                        </div>
+                        <div class="privacy-consent">
+                            <label>
+                                <input type="checkbox" name="privacy" checked required>
+                                <span>개인정보 수집 및 이용에 동의합니다.</span>
+                            </label>
+                            <p>입력하신 정보는 보험 상담 이외의 목적으로 활용되지 않으며, <span class="no-break">상담 종료 후 최대 3개월까지</span> 보관 후 삭제됩니다.</p>
+                        </div>
+                        <button class="lead-submit" type="submit">무료 점검 신청하기</button>
+                        <p class="form-message" role="status"></p>
+                    </form>
                     <div class="contact-actions">
                         <a href="tel:010-3430-2565" class="btn btn-phone">전화 상담</a>
                         <a href="https://open.kakao.com/o/s4lMEawg" target="_blank" rel="noopener" class="btn btn-kakao">카카오톡 채팅 상담</a>
                     </div>
-                                        <div class="privacy-consent">
-                        <label>
-                            <input type="checkbox" checked>
-                            <span>개인정보 수집 및 이용에 동의합니다.</span>
-                        </label>
-                        <p>입력하신 정보는 보험 상담 이외의 목적으로 활용되지 않으며, <span class="no-break">상담 종료 후 최대 3개월까지</span> 보관 후 삭제됩니다.</p>
-                    </div><p class="notice">상담비는 무료이며, 상담 결과에 따라 가입 권유 없이 점검만 받으셔도 됩니다.</p>
+                    <p class="notice">상담비는 무료이며, 상담 결과에 따라 가입 권유 없이 점검만 받으셔도 됩니다.</p>
                 </div>
             </div>
         </section>
@@ -1430,17 +1529,20 @@
             <div>
                 <p>상담 문의: 010-3430-2565</p>
                 <p>운영시간: 평일 09:00 ~ 18:00</p>
-                <div class="legal-notice" aria-label="금융소비자 보호 안내 사항">
-                    <strong>금융소비자 보호에 관한 법률 필수안내사항</strong>
-                    <p>승환계약 불이익사항 안내: 보험계약자가 기존 보험계약을 해지하고 새로운 보험계약을 체결하는 과정에서 질병 이력, 연령 증가 등으로 가입이 거절되거나 보험료가 인상될 수 있습니다.</p>
-                    <p>가입 상품에 따라 새로운 면책기간 적용 및 보장 제한 등 기타 불이익이 발생할 수 있습니다.</p>
-                    <p>상기 내용은 모집종사자 개인의 의견이며, 보험 계약 체결에 따른 이익 또는 손실은 보험계약자 및 피보험자에게 귀속됩니다.</p>
-                    <p>보험사 및 상품별로 상이할 수 있으므로 관련 세부사항은 반드시 해당 약관을 참조하시기 바랍니다.</p>
-                    <p>보험회사 상품별, 성별, 연령, 직업에 따라 가입 가능한 담보와 가입금액, 보험료 등은 달라질 수 있습니다.</p>
-                    <p>본 광고는 광고심의 기준을 준수하였으며, 유효기간은 심의일로부터 1년입니다.</p>
-                    <p>(주)메타리치 심의필26070116호 (2026.07.09~2026.07.08)</p>
-                    <p>보험설계사 배진우 · (주)메타리치 보험대리점 · 보험대리점 등록번호: 2023070016 · 손해/생명 협회 등록번호: 20151185060013</p>
-                </div>
+            </div>
+            <div class="legal-notice" aria-label="금융소비자 보호 안내 사항">
+                <strong>금융소비자 보호에 관한 법률 필수안내사항</strong>
+                <p>승환계약 불이익사항 안내: 보험계약자가 기존 보험계약을 해지하고 새로운 보험계약을 체결하는 과정에서 질병 이력, 연령 증가 등으로 가입이 거절되거나 보험료가 인상될 수 있습니다.</p>
+                <p>가입 상품에 따라 새로운 면책기간 적용 및 보장 제한 등 기타 불이익이 발생할 수 있습니다.</p>
+                <p>상기 내용은 모집종사자 개인의 의견이며, 보험 계약 체결에 따른 이익 또는 손실은 보험계약자 및 피보험자에게 귀속됩니다.</p>
+                <p>보험사 및 상품별로 상이할 수 있으므로 관련 세부사항은 반드시 해당 약관을 참조하시기 바랍니다.</p>
+                <p>보험회사 상품별, 성별, 연령, 직업에 따라 가입 가능한 담보와 가입금액, 보험료 등은 달라질 수 있습니다.</p>
+                <p>본 광고는 광고심의 기준을 준수하였으며, 유효기간은 심의일로부터 1년입니다.</p>
+                <p>(주)메타리치 심의필26070116호 (2026.07.09~2026.07.08)</p>
+                <p>보험설계사 배진우 · (주)메타리치 보험대리점 · 보험대리점 등록번호: 2023070016 · 손해/생명 협회 등록번호: 20151185060013</p>
+                <p>주식회사 메타리치</p>
+                <p>대표자 김상배 | 사업자등록번호 126-86-82797 | 보험대리점 등록번호 제 2023070016호</p>
+                <p>주소 경기도 과천시 양지마을로 22 2층 (과천동), 대한민국 | 대표전화 02-503-7175</p>
             </div>
         </div>
     </footer>
@@ -1451,5 +1553,103 @@
             <a class="float-kakao" href="https://open.kakao.com/o/s4lMEawg" target="_blank" rel="noopener">카톡 상담</a>
         </div>
     </div>
+    <script>
+        const LEAD_ENDPOINT = "https://script.google.com/macros/s/AKfycbx_acqxXYQmUY9n-TgsVYBXscE0o3iq4VGQh1dC7opSAqhtbJZhCdy8kRYFqZB_-T8Now/exec"; // 배진우 개인 전용 Google Apps Script
+
+        function formatLeadPhone(value) {
+            const digits = String(value || "").replace(/\D/g, "").slice(0, 11);
+            if (digits.length <= 3) return digits;
+            if (digits.length <= 7) return `${digits.slice(0, 3)}-${digits.slice(3)}`;
+            return `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7)}`;
+        }
+
+        document.querySelectorAll('.lead-form input[name="phone"]').forEach((input) => {
+            input.addEventListener("input", () => {
+                input.value = formatLeadPhone(input.value);
+            });
+        });
+
+        function leadUtm() {
+            const params = new URLSearchParams(location.search);
+            return {
+                utm_source: params.get("utm_source") || "daangn",
+                utm_medium: params.get("utm_medium") || "landing",
+                utm_campaign: params.get("utm_campaign") || "wonju-insurance-check",
+                page_url: location.href
+            };
+        }
+
+        document.querySelectorAll(".lead-form").forEach((form) => {
+            form.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const message = form.querySelector(".form-message");
+                const submitButton = form.querySelector('button[type="submit"]');
+                const name = form.elements.name.value.trim();
+                const phone = form.elements.phone.value.trim();
+                const privacy = form.elements.privacy.checked;
+                const formType = form.dataset.formType || "원주 당근 보험 점검";
+
+                message.classList.remove("error");
+                message.textContent = "";
+
+                if (!name || !phone || !privacy) {
+                    message.classList.add("error");
+                    message.textContent = "이름, 연락처, 개인정보 동의를 확인해 주세요.";
+                    return;
+                }
+
+                const payload = {
+                    createdAt: new Date().toISOString(),
+                    timestamp: new Date().toLocaleString("ko-KR"),
+                    brand: "현명한 보험",
+                    advisor: "배진우",
+                    expert: "배진우",
+                    formType: "consult",
+                    requestType: formType,
+                    pageName: "원주 당근 광고",
+                    requestPage: "원주 당근 광고",
+                    pageTitle: document.title,
+                    name,
+                    phone,
+                    type: formType,
+                    exp: formType,
+                    loc: "원주",
+                    region: "원주",
+                    message: "원주 당근 광고 무료 보험 점검 신청",
+                    area: "원주",
+                    age: "",
+                    memo: "원주 당근 광고 무료 보험 점검 신청",
+                    coverage: "기존 보험 점검",
+                    privacyConsent: "Y",
+                    source: "원주 당근 광고",
+                    telegramTitle: "[현명한 보험] 원주 당근 광고 신청",
+                    ...leadUtm()
+                };
+
+                try {
+                    submitButton.disabled = true;
+                    submitButton.dataset.originalText = submitButton.textContent;
+                    submitButton.textContent = "전송 중...";
+                    localStorage.setItem("wonju-daangn-last-lead", JSON.stringify(payload));
+
+                    await fetch(LEAD_ENDPOINT, {
+                        method: "POST",
+                        body: JSON.stringify(payload)
+                    });
+
+                    form.reset();
+                    form.elements.privacy.checked = true;
+                    message.textContent = "신청이 완료되었습니다. 곧 연락드리겠습니다.";
+                } catch (error) {
+                    message.classList.add("error");
+                    message.textContent = "접수 중 문제가 발생했습니다. 전화 또는 카카오톡 상담을 이용해 주세요.";
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.textContent = submitButton.dataset.originalText || "무료 점검 신청하기";
+                }
+            });
+        });
+    </script>
 </body>
 </html>
